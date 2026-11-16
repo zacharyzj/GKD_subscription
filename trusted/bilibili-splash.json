@@ -1,7 +1,7 @@
 {
   "id": 2026111601,
   "name": "广告跳过（快照验证）",
-  "version": 5,
+  "version": 6,
   "apps": [
     {
       "id": "tv.danmaku.bili",
@@ -460,6 +460,41 @@
             "https://i.gkd.li/i/24689154",
             "https://i.gkd.li/i/24689140",
             "https://i.gkd.li/i/24689246"
+          ]
+        },
+        {
+          "key": 6,
+          "name": "分段广告-整页小游戏左滑",
+          "desc": "仅在阅读器整页小游戏广告同时出现退出广告提示和游戏入口时，在顶部空白区域左滑；每次匹配滑动一次，10 秒内不重复，正文页不触发。",
+          "activityIds": [
+            "com.dragon.read.reader.ui.ReaderActivity"
+          ],
+          "matchRoot": true,
+          "actionCd": 10000,
+          "actionDelay": 500,
+          "rules": [
+            {
+              "key": 0,
+              "name": "整页小游戏广告-左滑下一页",
+              "action": "swipe",
+              "matches": [
+                "ViewGroup[id=\"com.dragon.read:id/dtd\"][visibleToUser=true] > ViewGroup[visibleToUser=true][left=parent.left][right=parent.right] > FrameLayout[visibleToUser=true] > FrameLayout[index=0][visibleToUser=true] > FrameLayout[visibleToUser=true] > ViewGroup[id=\"com.dragon.read:id/container\"][visibleToUser=true] > TextView[id=\"com.dragon.read:id/j9d\"][text=\"点击关闭广告并退出小说\"][visibleToUser=true]",
+                "ViewGroup[id=\"com.dragon.read:id/dtd\"][visibleToUser=true] > ViewGroup[visibleToUser=true][left=parent.left][right=parent.right] > FrameLayout[visibleToUser=true] > FrameLayout[id=\"com.dragon.read:id/h21\"][visibleToUser=true] > FrameLayout[visibleToUser=true] > ViewGroup[id=\"com.dragon.read:id/c4f\"][visibleToUser=true] > LinearLayout[id=\"com.dragon.read:id/fsj\"][visibleToUser=true] > FrameLayout[id=\"com.dragon.read:id/dmc\"][visibleToUser=true] > FrameLayout[visibleToUser=true] > FrameLayout[visibleToUser=true][childCount=4] > ViewGroup[index=3][visibleToUser=true] > FrameLayout[visibleToUser=true] > RelativeLayout[id=\"com.dragon.read:id/hdx\"][visibleToUser=true] > ViewGroup[id=\"com.dragon.read:id/fqw\"][visibleToUser=true] > TextView[id=\"com.dragon.read:id/j77\"][text=\"发现更多精彩游戏\"][visibleToUser=true]",
+                "ViewGroup[id=\"com.dragon.read:id/dtd\"][visibleToUser=true] > ViewGroup[visibleToUser=true][left=parent.left][right=parent.right] > FrameLayout[visibleToUser=true] > FrameLayout[id=\"com.dragon.read:id/h21\"][visibleToUser=true] > FrameLayout[visibleToUser=true] > ViewGroup[id=\"com.dragon.read:id/c4f\"][visibleToUser=true] > LinearLayout[id=\"com.dragon.read:id/fsj\"][visibleToUser=true] > FrameLayout[id=\"com.dragon.read:id/dmc\"][visibleToUser=true] > FrameLayout[visibleToUser=true] > FrameLayout[visibleToUser=true][childCount=4] > @ViewGroup[index=0][childCount=0][text=null][desc=null][visibleToUser=true][clickable=false][editable!=true][left=parent.left][right=parent.right][top=parent.top][height>0][width>height] + ViewGroup[index=1][visibleToUser=true] >n TextureView[visibleToUser=true][width>0][height>0]"
+              ],
+              "excludeMatches": "[visibleToUser=true][text~=\".*[0-9]+秒后(可)?(点击|关闭|继续|翻页).*\" || desc~=\".*[0-9]+秒后(可)?(点击|关闭|继续|翻页).*\"]",
+              "swipeArg": {
+                "start": {
+                  "left": "width * 0.8",
+                  "bottom": "height * 0.1"
+                },
+                "end": {
+                  "left": "width * 0.2",
+                  "bottom": "height * 0.1"
+                },
+                "duration": 300
+              }
+            }
           ]
         }
       ]
