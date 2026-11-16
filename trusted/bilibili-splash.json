@@ -1,7 +1,7 @@
 {
   "id": 2026111601,
   "name": "广告跳过（快照验证）",
-  "version": 4,
+  "version": 5,
   "apps": [
     {
       "id": "tv.danmaku.bili",
@@ -306,6 +306,12 @@
               "snapshotUrls": [
                 "https://i.gkd.li/i/24706223"
               ]
+            },
+            {
+              "key": 6,
+              "name": "底部小游戏广告-点击关闭",
+              "action": "clickNode",
+              "matches": "[id=\"com.dragon.read:id/f9b\"][visibleToUser=true] >n ViewGroup[childCount=5][visibleToUser=true] > ViewGroup[desc.length>0][childCount=0][clickable=false][visibleToUser=true] + ViewGroup[childCount=0][clickable=true][visibleToUser=true] + @ViewGroup[index=4][childCount=1][text=null][desc=null][clickable=true][focusable=true][editable!=true][visibleToUser=true] > ImageView[childCount=0][clickable=false][width<100 && height<100][visibleToUser=true]"
             }
           ],
           "excludeSnapshotUrls": [
