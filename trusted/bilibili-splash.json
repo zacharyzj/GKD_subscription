@@ -1,7 +1,7 @@
 {
   "id": 2026111601,
-  "name": "开屏跳过（快照验证）",
-  "version": 3,
+  "name": "广告跳过（快照验证）",
+  "version": 4,
   "apps": [
     {
       "id": "tv.danmaku.bili",
@@ -199,6 +199,261 @@
               "snapshotUrls": ["https://i.gkd.li/i/13216121"],
               "excludeSnapshotUrls": ["https://i.gkd.li/i/17811608"]
             }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "com.dragon.read",
+      "name": "番茄免费小说",
+      "groups": [
+        {
+          "key": -1,
+          "name": "开屏广告",
+          "desc": "仅在开屏广告页点击含「跳过广告」文字的父控件。",
+          "activityIds": [
+            "com.dragon.read.ad.openingscreenad.OpeningScreenADActivity"
+          ],
+          "matchRoot": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "actionDelay": 1000,
+          "rules": [
+            {
+              "key": 0,
+              "name": "开屏跳过",
+              "action": "clickNode",
+              "matches": "[id=\"com.dragon.read:id/acu\"][visibleToUser=true] >n @LinearLayout[id=\"com.dragon.read:id/hbu\"][desc=\"跳过广告\"][visibleToUser=true][clickable=true][editable!=true] > TextView[text=\"跳过广告\"][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/23282793"
+              ]
+            }
+          ],
+          "excludeSnapshotUrls": [
+            "https://i.gkd.li/i/14395093",
+            "https://i.gkd.li/i/21589667",
+            "https://i.gkd.li/i/21589381",
+            "https://i.gkd.li/i/24689154",
+            "https://i.gkd.li/i/24689140",
+            "https://i.gkd.li/i/24689246"
+          ]
+        },
+        {
+          "key": 0,
+          "name": "局部广告-阅读页面广告",
+          "desc": "限定阅读页广告容器，点击横幅或推广卡片的关闭控件。",
+          "activityIds": [
+            "com.dragon.read.reader.ui.ReaderActivity"
+          ],
+          "matchRoot": true,
+          "actionCd": 3500,
+          "actionDelay": 200,
+          "rules": [
+            {
+              "key": 1,
+              "name": "横幅广告关闭",
+              "action": "clickNode",
+              "anyMatches": [
+                "FrameLayout[id=\"com.dragon.read:id/cbg\"][visibleToUser=true] > @ImageView[id=\"com.dragon.read:id/b9k\"][visibleToUser=true][clickable=true][editable!=true][childCount=0] - LinearLayout[visibleToUser=true] >(2,3) [text=\"广告\" || text=\"立享优惠\" || text*=\"查看\" || text^=\"立即\" || text$=\"参与\"][text.length<5][visibleToUser=true]",
+                "FrameLayout[id=\"com.dragon.read:id/dnr\"][visibleToUser=true] > @ImageView[id=\"com.dragon.read:id/nw\"][visibleToUser=true][clickable=true][editable!=true][childCount=0] - LinearLayout[visibleToUser=true] >(2,3) [text=\"广告\" || text=\"立享优惠\" || text*=\"查看\" || text^=\"立即\" || text$=\"参与\"][text.length<5][visibleToUser=true]",
+                "FrameLayout[id=\"com.dragon.read:id/ecc\"][visibleToUser=true] > @ImageView[id=\"com.dragon.read:id/ns\"][visibleToUser=true][clickable=true][editable!=true][childCount=0] - LinearLayout[visibleToUser=true] >(2,3) [text=\"广告\" || text=\"立享优惠\" || text*=\"查看\" || text^=\"立即\" || text$=\"参与\"][text.length<5][visibleToUser=true]",
+                "FrameLayout[id=\"com.dragon.read:id/esn\"][visibleToUser=true] > @ImageView[id=\"com.dragon.read:id/nr\"][visibleToUser=true][clickable=true][editable!=true][childCount=0] - LinearLayout[visibleToUser=true] >(2,3) [text=\"广告\" || text=\"立享优惠\" || text*=\"查看\" || text^=\"立即\" || text$=\"参与\"][text.length<5][visibleToUser=true]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/i/12908734",
+                "https://i.gkd.li/i/18138903",
+                "https://i.gkd.li/i/21623147",
+                "https://i.gkd.li/i/25174203"
+              ]
+            },
+            {
+              "key": 2,
+              "name": "原生横幅广告关闭",
+              "action": "clickNode",
+              "matches": "FrameLayout[id=\"com.dragon.read:id/layout_banner_ad_bg\"][visibleToUser=true] > @ImageView[id=\"com.dragon.read:id/close_button\"][visibleToUser=true][clickable=true][editable!=true] - LinearLayout[id=\"com.dragon.read:id/ll_banner_content\"][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/13520314"
+              ]
+            },
+            {
+              "key": 3,
+              "name": "确认关闭此条广告",
+              "action": "clickNode",
+              "matches": "[id=\"com.dragon.read:id/container\"][visibleToUser=true] > @ViewGroup[id=\"com.dragon.read:id/afj\"][visibleToUser=true][clickable=true][editable!=true] > TextView[id=\"com.dragon.read:id/afl\"][text=\"关闭此条广告\"][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/14540281"
+              ],
+              "preKeys": [
+                1,
+                2
+              ]
+            },
+            {
+              "key": 4,
+              "name": "关闭游戏推广卡片",
+              "action": "clickNode",
+              "matches": "ViewGroup[id=\"com.dragon.read:id/atn\"][visibleToUser=true] > @FrameLayout[id=\"com.dragon.read:id/bre\"][visibleToUser=true][clickable=true][editable!=true] > ImageView[id=\"com.dragon.read:id/cdd\"][desc=\"close game card ad\"][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/14622531"
+              ]
+            },
+            {
+              "key": 5,
+              "name": "关闭原著改编推广",
+              "action": "clickNode",
+              "matches": "FrameLayout[id=\"com.dragon.read:id/eso\"][visibleToUser=true] >n @ImageView[id=\"com.dragon.read:id/f\"][visibleToUser=true][clickable=true][editable!=true] +n ViewGroup[id=\"com.dragon.read:id/f0x\"][visibleToUser=true] > [text=\"原著改编\"][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/24706223"
+              ]
+            }
+          ],
+          "excludeSnapshotUrls": [
+            "https://i.gkd.li/i/14395093",
+            "https://i.gkd.li/i/21589667",
+            "https://i.gkd.li/i/21589381",
+            "https://i.gkd.li/i/24689154",
+            "https://i.gkd.li/i/24689140",
+            "https://i.gkd.li/i/24689246"
+          ]
+        },
+        {
+          "key": 3,
+          "name": "全屏广告-阅读页面",
+          "desc": "仅点击阅读页广告中的明确关闭按钮。",
+          "activityIds": [
+            "com.dragon.read.reader.ui.ReaderActivity"
+          ],
+          "matchRoot": true,
+          "actionCd": 3500,
+          "actionDelay": 200,
+          "rules": [
+            {
+              "key": 4,
+              "name": "关闭阅读页视频广告",
+              "action": "clickNode",
+              "matches": "[id=\"com.dragon.read:id/ask\"][visibleToUser=true] > FrameLayout > AwemeLynxVideoUI[visibleToUser=true] +n FlattenUIText[text=\"关闭\"][visibleToUser=true][clickable=true][editable!=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/23549149"
+              ]
+            },
+            {
+              "key": 5,
+              "name": "关闭带广告标识的弹层",
+              "action": "clickNode",
+              "matches": "[id=\"com.dragon.read:id/eal\"][visibleToUser=true] > TextView[text=\"广告\"][visibleToUser=true] +2 Button[id=\"com.dragon.read:id/close\"][text=\"关闭\"][visibleToUser=true][clickable=true][editable!=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/13191156"
+              ]
+            }
+          ],
+          "excludeSnapshotUrls": [
+            "https://i.gkd.li/i/14395093",
+            "https://i.gkd.li/i/21589667",
+            "https://i.gkd.li/i/21589381",
+            "https://i.gkd.li/i/24689154",
+            "https://i.gkd.li/i/24689140",
+            "https://i.gkd.li/i/24689246"
+          ]
+        },
+        {
+          "key": 5,
+          "name": "分段广告-阅读页面广告",
+          "desc": "限定广告区域打开反馈并关闭；仅在出现「继续阅读下一页」时继续阅读，不跳过计时或领取奖励。",
+          "activityIds": [
+            "com.dragon.read.reader.ui.ReaderActivity"
+          ],
+          "matchRoot": true,
+          "actionCd": 3500,
+          "actionDelay": 200,
+          "rules": [
+            {
+              "key": 0,
+              "name": "打开阅读页广告反馈",
+              "action": "clickNode",
+              "matches": "[id=\"com.dragon.read:id/fl_dynamic_ad_container\"][visibleToUser=true] >n [id=\"com.dragon.read:id/bullet_container\"][visibleToUser=true] > FrameLayout > @LynxFlattenUI[text=\"反馈\"][desc=\"反馈\"][visibleToUser=true][clickable=true][editable!=true] + FlattenUIText[text=\"反馈\"][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/13520160"
+              ],
+              "excludeMatches": "[visibleToUser=true][text~=\".*[0-9]+秒后(可)?(点击|关闭|继续|翻页).*\"]"
+            },
+            {
+              "key": 1,
+              "name": "打开原生横幅广告菜单",
+              "action": "clickNode",
+              "matches": [
+                "[id=\"com.dragon.read:id/dmp\"][visibleToUser=true] > LinearLayout[visibleToUser=true] >2 [text=\"广告\"][visibleToUser=true]",
+                "[id=\"com.dragon.read:id/dmp\"][visibleToUser=true] > FrameLayout[id=\"com.dragon.read:id/bkj\"][visibleToUser=true] > ImageView[id=\"com.dragon.read:id/nz\"][visibleToUser=true][clickable=true][editable!=true]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/i/18724040"
+              ]
+            },
+            {
+              "key": 2,
+              "name": "打开底部横幅广告菜单",
+              "action": "clickNode",
+              "matches": "[id=\"com.dragon.read:id/eo9\"][visibleToUser=true] >n ViewGroup[childCount>4][visibleToUser=true] > @ViewGroup[childCount=1][focusable=true][width<50 && height<50][visibleToUser=true][clickable=true][editable!=true] +n [desc!=null][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/24189866",
+                "https://i.gkd.li/i/24189900",
+                "https://i.gkd.li/i/24189911",
+                "https://i.gkd.li/i/24189915",
+                "https://i.gkd.li/i/24205796",
+                "https://i.gkd.li/i/24205810"
+              ]
+            },
+            {
+              "key": 3,
+              "name": "确认不感兴趣或关闭此广告",
+              "action": "clickNode",
+              "anyMatches": [
+                "@ViewGroup[id=\"com.dragon.read:id/ad_feedback_not_interest\"][visibleToUser=true][clickable=true][editable!=true] > TextView[text=\"不感兴趣\"][visibleToUser=true]",
+                "@ViewGroup[id=\"com.dragon.read:id/d6\"][visibleToUser=true][clickable=true][editable!=true] > TextView[text=\"不感兴趣\"][visibleToUser=true]",
+                "@ViewGroup[id=\"com.dragon.read:id/d3\"][visibleToUser=true][clickable=true][editable!=true] > TextView[text=\"不感兴趣\"][visibleToUser=true]",
+                "[id=\"com.dragon.read:id/hw\"][visibleToUser=true] > LinearLayout[id=\"com.dragon.read:id/bqi\"][visibleToUser=true] > @TextView[id=\"com.dragon.read:id/tt\"][text=\"不感兴趣\"][visibleToUser=true][clickable=true][editable!=true] + TextView[id=\"com.dragon.read:id/tu\"][text=\"举报\"][visibleToUser=true]",
+                "[id=\"com.dragon.read:id/c9g\"][visibleToUser=true] >n GridView[id=\"com.dragon.read:id/l2\"][visibleToUser=true] > @RelativeLayout[id=\"com.dragon.read:id/e1n\"][visibleToUser=true][clickable=true][editable!=true] > TextView[id=\"com.dragon.read:id/ei\"][text=\"不感兴趣\"][visibleToUser=true]",
+                "[id=\"com.dragon.read:id/bak\"][visibleToUser=true] > RecyclerView[id=\"com.dragon.read:id/l7\"][visibleToUser=true] > LinearLayout[visibleToUser=true] > TextView[text=\"关闭此广告\"][visibleToUser=true][clickable=true][editable!=true]",
+                "[id=\"com.dragon.read:id/azf\"][visibleToUser=true] > RecyclerView[id=\"com.dragon.read:id/l2\"][visibleToUser=true] > LinearLayout[visibleToUser=true] > TextView[text=\"关闭此广告\"][visibleToUser=true][clickable=true][editable!=true]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/i/13520219",
+                "https://i.gkd.li/i/13674550",
+                "https://i.gkd.li/i/13816454",
+                "https://i.gkd.li/i/14913207",
+                "https://i.gkd.li/i/18724041",
+                "https://i.gkd.li/i/24128392",
+                "https://i.gkd.li/i/24189605"
+              ],
+              "preKeys": [
+                0,
+                1,
+                2
+              ]
+            },
+            {
+              "key": 4,
+              "name": "就绪后继续阅读下一页",
+              "action": "clickNode",
+              "matches": [
+                "[id=\"com.dragon.read:id/ibq\"][text=\"点击关闭广告并退出小说\"][visibleToUser=true]",
+                "[id=\"com.dragon.read:id/d79\"][visibleToUser=true] >n RelativeLayout[id=\"com.dragon.read:id/gnu\"][visibleToUser=true] > @ViewGroup[id=\"com.dragon.read:id/f5p\"][visibleToUser=true][clickable=true][editable!=true] > TextView[id=\"com.dragon.read:id/i_r\"][text=\"继续阅读下一页\"][visibleToUser=true]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/i/24128141"
+              ],
+              "actionCd": 5000,
+              "actionDelay": 300,
+              "excludeMatches": "[visibleToUser=true][text~=\".*[0-9]+秒后(可)?(点击|关闭|继续|翻页).*\"]"
+            }
+          ],
+          "excludeSnapshotUrls": [
+            "https://i.gkd.li/i/14395093",
+            "https://i.gkd.li/i/21589667",
+            "https://i.gkd.li/i/21589381",
+            "https://i.gkd.li/i/24689154",
+            "https://i.gkd.li/i/24689140",
+            "https://i.gkd.li/i/24689246"
           ]
         }
       ]
