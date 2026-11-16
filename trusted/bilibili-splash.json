@@ -1,7 +1,7 @@
 {
   "id": 2026111601,
-  "name": "哔哩哔哩开屏跳过",
-  "version": 1,
+  "name": "开屏跳过（快照验证）",
+  "version": 2,
   "apps": [
     {
       "id": "tv.danmaku.bili",
@@ -22,6 +22,131 @@
               "action": "clickNode",
               "matches": "@[id=\"tv.danmaku.bili:id/count_down\"][text~=\"^跳过( [0-9]{1,2})?$\"][visibleToUser=true][clickable=true] <<n [id=\"tv.danmaku.bili:id/splash_layout\"][visibleToUser=true]",
               "snapshotUrls": ["https://i.gkd.li/i/16484445"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "com.cebbank.mobile.cemb",
+      "name": "光大银行",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "desc": "仅点击开屏广告容器内可见的跳过按钮。",
+          "activityIds": ["com.cebbank.mobile.cemb.ui.activity.HomeActivity"],
+          "matchRoot": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "key": 0,
+              "action": "clickNode",
+              "matches": "@[id=\"com.cebbank.mobile.cemb:id/tv_skip\"][text~=\"^跳过  [0-9]{1,2}s$\"][visibleToUser=true][clickable=true][editable=false] <<n [id=\"com.cebbank.mobile.cemb:id/countdown_splash\"][visibleToUser=true]",
+              "snapshotUrls": ["https://i.gkd.li/i/17615867"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "com.kuaishou.nebula",
+      "name": "快手极速版",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "desc": "仅点击开屏广告容器内可见的跳过按钮。",
+          "activityIds": ["com.yxcorp.gifshow.HomeActivity"],
+          "matchRoot": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "key": 0,
+              "action": "clickNode",
+              "matches": "@[id=\"com.kuaishou.nebula:id/splash_skip_text\"][text~=\"^跳过 [0-9]{1,2}$\"][visibleToUser=true][clickable=true][editable=false] <<n [id=\"com.kuaishou.nebula:id/splash_image_cover\"][visibleToUser=true]",
+              "snapshotUrls": ["https://i.gkd.li/i/17631261"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "com.xpx365.projphoto",
+      "name": "工程相机",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "desc": "仅点击开屏广告容器内可见的跳过按钮。",
+          "activityIds": ["com.xpx365.projphoto.SplashActivity"],
+          "matchRoot": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "key": 0,
+              "action": "clickNode",
+              "matches": "@[id=\"com.xpx365.projphoto:id/vilon_close_text\"][text~=\"^跳过  [0-9]{1,2}$\"][visibleToUser=true][clickable=true][editable=false] <<n [id=\"com.xpx365.projphoto:id/vlion_splash_fl_container\"][visibleToUser=true]",
+              "snapshotUrls": ["https://i.gkd.li/i/16030620"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "com.ydtx.camera",
+      "name": "元道经纬相机",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "desc": "仅点击开屏广告容器内可见的跳过按钮。",
+          "activityIds": ["com.ydtx.camera.activity.SplashActivitynew"],
+          "matchRoot": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "key": 0,
+              "action": "clickNode",
+              "matches": "@[id=\"com.ydtx.camera:id/tev_countdown\"][text~=\"^[0-9]{1,2}S \\\\| 跳过$\"][visibleToUser=true][clickable=true][editable=false] <<n [id=\"com.ydtx.camera:id/splash_container\"][visibleToUser=true]",
+              "snapshotUrls": ["https://i.gkd.li/i/20882921"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "com.zhihu.android",
+      "name": "知乎",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "desc": "仅点击开屏广告容器内可见的跳过按钮。",
+          "activityIds": ["com.zhihu.android.app.ui.activity.LauncherActivity"],
+          "excludeActivityIds": [
+            ".app.SearchActivity",
+            ".comment.ui.activity.CommentListActivity",
+            ".feature.short_container_feature.ui.ShortContainerHostActivity"
+          ],
+          "matchRoot": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "key": 0,
+              "action": "clickNode",
+              "matches": "@[id=\"com.zhihu.android:id/btn_skip\"][text~=\"^跳过[0-9]{1,2}$\"][visibleToUser=true][clickable=true][editable=false] <<n [id=\"com.zhihu.android:id/launch_ad_layout\"][visibleToUser=true]",
+              "snapshotUrls": ["https://i.gkd.li/i/18221451"]
             }
           ]
         }
