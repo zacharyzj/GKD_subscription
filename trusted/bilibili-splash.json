@@ -1,0 +1,31 @@
+{
+  "id": 2026111601,
+  "name": "哔哩哔哩开屏跳过",
+  "version": 1,
+  "apps": [
+    {
+      "id": "tv.danmaku.bili",
+      "name": "哔哩哔哩",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "desc": "点击开屏广告容器内可见、可点击的跳过按钮。",
+          "activityIds": ["tv.danmaku.bili.MainActivityV2"],
+          "matchRoot": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "key": 0,
+              "action": "clickNode",
+              "matches": "@[id=\"tv.danmaku.bili:id/count_down\"][text~=\"^跳过( [0-9]{1,2})?$\"][visibleToUser=true][clickable=true] <<n [id=\"tv.danmaku.bili:id/splash_layout\"][visibleToUser=true]",
+              "snapshotUrls": ["https://i.gkd.li/i/16484445"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
