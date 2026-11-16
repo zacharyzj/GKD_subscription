@@ -1,7 +1,7 @@
 {
   "id": 2026111601,
   "name": "开屏跳过（快照验证）",
-  "version": 2,
+  "version": 3,
   "apps": [
     {
       "id": "tv.danmaku.bili",
@@ -147,6 +147,57 @@
               "action": "clickNode",
               "matches": "@[id=\"com.zhihu.android:id/btn_skip\"][text~=\"^跳过[0-9]{1,2}$\"][visibleToUser=true][clickable=true][editable=false] <<n [id=\"com.zhihu.android:id/launch_ad_layout\"][visibleToUser=true]",
               "snapshotUrls": ["https://i.gkd.li/i/18221451"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "com.taobao.taobao",
+      "name": "淘宝",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "desc": "仅点击欢迎页开屏广告容器内的「跳过广告」按钮。",
+          "activityIds": ["com.taobao.tao.welcome.Welcome"],
+          "matchRoot": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "key": 0,
+              "action": "clickNode",
+              "matches": "[id=\"com.taobao.taobao:id/layout_ad_logo\"][visibleToUser=true] > @[id=\"com.taobao.taobao:id/close\"][visibleToUser=true][clickable=true][editable=false] > [id=\"com.taobao.taobao:id/close_txt\"][text=\"跳过广告\"][visibleToUser=true]",
+              "snapshotUrls": ["https://i.gkd.li/i/17578451"],
+              "excludeSnapshotUrls": ["https://i.gkd.li/i/17576743"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "com.ss.android.ugc.aweme",
+      "name": "抖音",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "desc": "仅点击开屏广告页中含「跳过广告」文字的父控件。",
+          "activityIds": ["com.bytedance.ies.ugc.aweme.commercialize.splash.show.SplashAdActivity"],
+          "excludeActivityIds": [".search.activity.SearchResultActivity"],
+          "matchRoot": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "key": 0,
+              "action": "clickNode",
+              "matches": "[id=\"com.ss.android.ugc.aweme:id/ufb\"][visibleToUser=true] >n @[id=\"com.ss.android.ugc.aweme:id/ufn\"][visibleToUser=true][clickable=true][editable!=true] > [text=\"跳过广告\"][visibleToUser=true]",
+              "snapshotUrls": ["https://i.gkd.li/i/13216121"],
+              "excludeSnapshotUrls": ["https://i.gkd.li/i/17811608"]
             }
           ]
         }
