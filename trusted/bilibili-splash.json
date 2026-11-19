@@ -1,7 +1,7 @@
 {
   "id": 2026111601,
   "name": "广告跳过（快照验证）",
-  "version": 7,
+  "version": 8,
   "apps": [
     {
       "id": "tv.danmaku.bili",
@@ -312,6 +312,33 @@
               "name": "底部小游戏广告-点击关闭",
               "action": "clickNode",
               "matches": "[id=\"com.dragon.read:id/f9b\"][visibleToUser=true] >n ViewGroup[childCount=5][visibleToUser=true] > ViewGroup[desc.length>0][childCount=0][clickable=false][visibleToUser=true] + ViewGroup[childCount=0][clickable=true][visibleToUser=true] + @ViewGroup[index=4][childCount=1][text=null][desc=null][clickable=true][focusable=true][editable!=true][visibleToUser=true] > ImageView[childCount=0][clickable=false][width<100 && height<100][visibleToUser=true]"
+            },
+            {
+              "key": 7,
+              "name": "底部小游戏广告-打开关闭菜单",
+              "versionCodes": [73932],
+              "action": "clickNode",
+              "matches": [
+                "FrameLayout[id=\"com.dragon.read:id/dte\"][visibleToUser=true] > FrameLayout[id=\"com.dragon.read:id/f9b\"][visibleToUser=true][left=parent.left && right=parent.right && bottom=parent.bottom][height>0 && height.times(3)<width] >n TextureView[visibleToUser=true][width>0 && height>0]",
+                "FrameLayout[id=\"com.dragon.read:id/dte\"][visibleToUser=true] > FrameLayout[id=\"com.dragon.read:id/f9b\"][visibleToUser=true] > FrameLayout[visibleToUser=true] > FrameLayout[visibleToUser=true] > FrameLayout[visibleToUser=true] > FrameLayout[visibleToUser=true][focusable=true] > ViewGroup[childCount=5][visibleToUser=true][clickable=true][focusable=true][left=parent.left && right=parent.right && top=parent.top && bottom=parent.bottom] > ViewGroup[index=2][childCount=0][visibleToUser=true][clickable=true][width>height && height>0] + @ViewGroup[index=3][childCount=1][visibleToUser=true][clickable=true][focusable=true][editable!=true][text=null && desc=null][top=parent.top && right>=parent.right.minus(2)][width>0 && width=height && width.times(8)<parent.width][getChild(0).name=\"android.widget.ImageView\" && getChild(0).visibleToUser=true && getChild(0).clickable=false][getChild(0).width>0 && getChild(0).height>0] + ViewGroup[index=4][childCount=0][visibleToUser=true][clickable=false][desc.length>0][width>0 && height>0]"
+              ],
+              "excludeMatches": "FrameLayout[id=\"com.dragon.read:id/design_bottom_sheet\"][visibleToUser=true]"
+            },
+            {
+              "key": 8,
+              "name": "底部小游戏广告-关闭此广告",
+              "versionCodes": [73932],
+              "action": "clickNode",
+              "preKeys": [7],
+              "matches": [
+                "FrameLayout[id=\"com.dragon.read:id/design_bottom_sheet\"][visibleToUser=true] >n TextView[text=\"我不想看\"][visibleToUser=true][width>0 && height>0]",
+                "FrameLayout[id=\"com.dragon.read:id/design_bottom_sheet\"][visibleToUser=true] >n TextView[text=\"举报广告\"][visibleToUser=true][width>0 && height>0]",
+                "FrameLayout[id=\"com.dragon.read:id/design_bottom_sheet\"][visibleToUser=true] >n RecyclerView[visibleToUser=true][childCount=2 || childCount=3] > LinearLayout[childCount=1][visibleToUser=true][getChild(0).text=\"取消\" && getChild(0).visibleToUser=true] - LinearLayout[visibleToUser=true] > TextView[text=\"关闭此广告\"][visibleToUser=true][clickable=true][editable!=true][width>0 && height>0]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/i/18724041",
+                "https://i.gkd.li/i/24189605"
+              ]
             }
           ],
           "excludeSnapshotUrls": [
