@@ -1,7 +1,7 @@
 {
   "id": 2026111601,
   "name": "广告跳过（快照验证）",
-  "version": 6,
+  "version": 7,
   "apps": [
     {
       "id": "tv.danmaku.bili",
@@ -491,6 +491,49 @@
                 "end": {
                   "left": "width * 0.2",
                   "bottom": "height * 0.1"
+                },
+                "duration": 300
+              }
+            }
+          ]
+        },
+        {
+          "key": 7,
+          "name": "分段广告-整页影视海报左滑",
+          "desc": "番茄 7.4.5.32 阅读器出现与《万妖图录传》相同版式的整页海报时，从海报上方左滑一页。章末视频入口可见时暂停此规则。",
+          "activityIds": [
+            "com.dragon.read.reader.ui.ReaderActivity"
+          ],
+          "versionCodes": [
+            74532
+          ],
+          "matchRoot": true,
+          "actionCd": 10000,
+          "actionDelay": 1400,
+          "rules": [
+            {
+              "key": 0,
+              "name": "整页影视海报-左滑下一页",
+              "action": "swipe",
+              "matches": [
+                "ViewGroup[vid=\"dy7\"][visibleToUser=true] > ViewGroup[visibleToUser=true][left=0 && right=parent.right] > FrameLayout[visibleToUser=true] > FrameLayout[index=0] > FrameLayout > ViewGroup[vid=\"container\"] > TextView[vid=\"jgd\"][visibleToUser=true][width>0 && height>0][text=\"点击关闭广告并退出小说\" || text~=\"第[0-9]+章.+\"]",
+                "ViewGroup[vid=\"dy7\"][visibleToUser=true] > ViewGroup[visibleToUser=true][left=0 && right=parent.right] > FrameLayout[visibleToUser=true] > FrameLayout[index=0] > FrameLayout > LinearLayout > ViewGroup[vid=\"fg0\"] > TextView[vid=\"jxy\"][visibleToUser=true][width>0 && height>0][text~=\"[0-9]+/[0-9]+\"]",
+                "ViewGroup[vid=\"dy7\"][visibleToUser=true] > ViewGroup[visibleToUser=true][left=0 && right=parent.right] > FrameLayout[visibleToUser=true] > FrameLayout[vid=\"h8h\"][visibleToUser=true][clickable=true] > FrameLayout[visibleToUser=true] > ViewGroup[vid=\"c7p\"] > LinearLayout[vid=\"fyd\"] > FrameLayout[vid=\"dqt\"] > FrameLayout > FrameLayout > @FrameLayout[vid=\"ayn\"][visibleToUser=true][clickable=false][left=0 && top=0 && right=parent.right && bottom=parent.bottom] > FrameLayout[visibleToUser=true][focusable=true][left=parent.left && top=parent.top && right=parent.right && bottom=parent.bottom] > ViewGroup[visibleToUser=true][childCount=2][clickable=false][width>0 && height>0][top.times(1000).div(parent.height)>=150 && top.times(1000).div(parent.height)<=190][width.times(1000).div(height)>=618 && width.times(1000).div(height)<=622] > ImageView[index=0][visibleToUser=true][childCount=0][clickable=false][text=null && desc=null][left=parent.left && top=parent.top && right=parent.right && bottom=parent.bottom] + ViewGroup[index=1][visibleToUser=true][childCount=0][clickable=false][text=null && desc=null][left.minus(parent.left).times(1000).div(parent.width)>=48 && left.minus(parent.left).times(1000).div(parent.width)<=52][width.times(1000).div(parent.width)>=898 && width.times(1000).div(parent.width)<=904][top.minus(parent.top).times(1000).div(parent.height)>=763 && top.minus(parent.top).times(1000).div(parent.height)<=767][height.times(1000).div(parent.height)>=175 && height.times(1000).div(parent.height)<=179]"
+              ],
+              "excludeMatches": [
+                "[visibleToUser=true][width>0 && height>0][text*=\"看视频免30分钟广告\" || desc*=\"看视频免30分钟广告\"]",
+                "[vid=\"jfg\"][text=\"目录\"][visibleToUser=true][width>0 && height>0]",
+                "[visibleToUser=true][width>0 && height>0][text~=\".*[0-9]+秒后(可)?(点击|关闭|继续|翻页).*\" || desc~=\".*[0-9]+秒后(可)?(点击|关闭|继续|翻页).*\"]",
+                "TextureView[visibleToUser=true][width>0 && height>0]"
+              ],
+              "swipeArg": {
+                "start": {
+                  "left": "width * 0.8",
+                  "top": "height * 0.12"
+                },
+                "end": {
+                  "left": "width * 0.2",
+                  "top": "height * 0.12"
                 },
                 "duration": 300
               }
